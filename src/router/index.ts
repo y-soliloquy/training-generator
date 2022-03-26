@@ -1,11 +1,23 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import PiramidMethod from "../views/PiramidMethodView.vue";
+import ThreeTwoOneMethod from "../views/531MethodView.vue";
 
 const routes: Array<RouteRecordRaw> = [
 	{
 		path: "/",
 		name: "home",
 		component: HomeView,
+	},
+	{
+		path: "/piramidmethod",
+		name: "piramidMethod",
+		component: PiramidMethod,
+	},
+	{
+		path: "/531method",
+		name: "531Method",
+		component: ThreeTwoOneMethod,
 	},
 	// {
 	//   path: "/about",

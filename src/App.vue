@@ -1,6 +1,8 @@
 <template>
 	<nav>
-		<router-link to="/">Home</router-link>
+		<router-link to="/">Home</router-link> |
+		<router-link to="/piramidmethod">ピラミッド法</router-link> |
+		<router-link to="/531method">531プログラム</router-link>
 	</nav>
 	<router-view />
 </template>
