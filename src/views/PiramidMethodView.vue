@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import UITitle from "../components/ui/UITitle.vue";
 import UIExplain from "../components/ui/UIExplain.vue";
+import UIInput from "../components/ui/UIInput.vue";
 
 const title = "ピラミッド法";
 const explain =
@@ -10,7 +11,7 @@ const explain =
 <template>
 	<UITitle :title="title" />
 	<UIExplain :explain="explain" />
-	<div>ピラミッド法のページです</div>
+	<UIInput />
 </template>
 
 <style></style>
