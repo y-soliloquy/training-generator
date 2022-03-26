@@ -5,6 +5,33 @@ import UIInput from "../components/ui/UIInput.vue";
 import UIFlexBox from "../components/ui/UIFlexBox.vue";
 import UIButton from "../components/ui/UIButton.vue";
 
+import { ref, Ref, reactive } from "vue";
+
+let weight: Ref<number> = ref(0);
+
+const state = reactive({
+	isCalculated: false,
+});
+
+const input = (event: { value: number }) => {
+	weight.value = event.value;
+	return { weight };
+};
+
+const calcWeight = (percentage: number) => {
+	console.log(percentage);
+	const result: number = weight.value * (percentage / 100);
+	return result;
+};
+
+const onClickCalc = () => {
+	state.isCalculated = true;
+};
+
+const onClickReset = () => {
+	state.isCalculated = false;
+};
+
 const title = "ピラミッド法";
 const explain =
 	"オーソドックスに着実に筋肥大と筋力アップを目指す場合、ピラミッド法が適しています。";
@@ -53,17 +80,19 @@ const menuList: menu[] = [
 <template>
 	<UITitle :title="title" />
 	<UIExplain :explain="explain" />
-	<UIInput />
+	<UIInput @input="input" />
 	<UIFlexBox>
-		<UIButton>計算</UIButton>
-		<UIButton>リセット</UIButton>
+		<UIButton @click="onClickCalc">計算</UIButton>
+		<UIButton @click="onClickReset">リセット</UIButton>
 	</UIFlexBox>
+	<!-- {{ weight }} -->
 	<table class="PiramidMethodView-Table">
 		<tbody>
 			<tr v-for="(menu, index) in menuList" :key="index">
 				<th>{{ menu.number }}セット目</th>
 				<td>
-					{{ menu.percentage }}% x
+					<span v-if="!state.isCalculated">{{ menu.percentage }}%</span
+					><span v-else>{{ calcWeight(menu.percentage) }}</span> x
 					<span v-if="menu.count !== 1000">{{ menu.count }}回</span
 					><span v-else>限界回数</span>
 				</td>
