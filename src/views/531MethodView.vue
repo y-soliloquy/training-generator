@@ -5,6 +5,10 @@ import UIInput from "../components/ui/UIInput.vue";
 import UIFlexBox from "../components/ui/UIFlexBox.vue";
 import UIButton from "../components/ui/UIButton.vue";
 
+import { ref, Ref } from "vue";
+
+let weight: Ref<number> = ref(0);
+
 const title = "531プログラム";
 const explain = "日々の体調の揺れに対応できるプログラムです。";
 </script>
@@ -12,7 +16,7 @@ const explain = "日々の体調の揺れに対応できるプログラムです
 <template>
 	<UITitle :title="title" />
 	<UIExplain :explain="explain" />
-	<UIInput />
+	<UIInput :value="weight" />
 	<UIFlexBox>
 		<UIButton>計算</UIButton>
 		<UIButton>リセット</UIButton>

@@ -5,32 +5,45 @@ import UIInput from "../components/ui/UIInput.vue";
 import UIFlexBox from "../components/ui/UIFlexBox.vue";
 import UIButton from "../components/ui/UIButton.vue";
 
-import { ref, Ref, reactive } from "vue";
+import { ref, Ref, reactive, computed } from "vue";
 
 let weight: Ref<number> = ref(0);
 
 const state = reactive({
 	isCalculated: false,
+	isCalculateAvailable: false,
+	isInterval: false,
 });
 
 const input = (event: { value: number }) => {
-	weight.value = event.value;
-	return { weight };
+	if (!state.isInterval) {
+		weight.value = event.value;
+	}
 };
 
 const calcWeight = (percentage: number) => {
-	console.log(percentage);
 	const result: number = weight.value * (percentage / 100);
 	return result;
 };
 
 const onClickCalc = () => {
 	state.isCalculated = true;
+	state.isInterval = true;
 };
 
 const onClickReset = () => {
+	weight.value = 0;
 	state.isCalculated = false;
+	state.isInterval = false;
 };
+
+const isCheckCalculateAvailable = computed(() => {
+	return weight.value > 0 && !state.isInterval ? true : false;
+});
+
+const isCheckResetAvailable = computed(() => {
+	return state.isCalculated ? true : false;
+});
 
 const title = "ピラミッド法";
 const explain =
@@ -80,12 +93,11 @@ const menuList: menu[] = [
 <template>
 	<UITitle :title="title" />
 	<UIExplain :explain="explain" />
-	<UIInput @input="input" />
+	<UIInput @input="input" :value="weight" />
 	<UIFlexBox>
-		<UIButton @click="onClickCalc">計算</UIButton>
-		<UIButton @click="onClickReset">リセット</UIButton>
+		<UIButton @click="onClickCalc" :disabled="!isCheckCalculateAvailable">計算</UIButton>
+		<UIButton @click="onClickReset" :disabled="!isCheckResetAvailable">リセット</UIButton>
 	</UIFlexBox>
-	<!-- {{ weight }} -->
 	<table class="PiramidMethodView-Table">
 		<tbody>
 			<tr v-for="(menu, index) in menuList" :key="index">

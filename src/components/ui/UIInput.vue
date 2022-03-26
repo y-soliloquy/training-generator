@@ -1,12 +1,17 @@
 <script setup lang="ts">
-import { defineEmits } from "vue";
+import { defineEmits, defineProps } from "vue";
 const emit = defineEmits(["input"]);
+type Props = {
+	value: number;
+};
+
+const props = defineProps<Props>();
 </script>
 
 <template>
 	<div class="UIInput">
 		<span class="UIInput-Label">MAX重量 </span>
-		<input type="text" @input="emit('input', $event.target)" />
+		<input type="number" :value="props.value" @input="emit('input', $event.target)" />
 	</div>
 </template>
 
