@@ -26,17 +26,21 @@ const onClickClose = () => {
 
 <style>
 .Modal {
-	position: absolute;
+	position: fixed;
 	z-index: 5;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	background-color: rgba(0, 0, 0, 0.1);
+	background-size: cover;
 	padding: 0.5em;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	height: 100%;
+
+	background-attachment: fixed;
 }
 
 .Modal-Box {
@@ -77,4 +81,10 @@ const onClickClose = () => {
 .Modal-TS-leave-to .Modal-Box {
 	transform: scale(0.9);
 }
+
+/* @media (max-width: 480px) {
+	.Modal {
+		position: fixed;
+	}
+} */
 </style>
