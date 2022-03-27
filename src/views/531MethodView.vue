@@ -6,23 +6,18 @@ import UIFlexBox from "../components/ui/UIFlexBox.vue";
 import UIButton from "../components/ui/UIButton.vue";
 import UIHint from "../components/ui/UIHint.vue";
 
-import { reactive, computed } from "vue";
+import { ref, Ref, reactive, computed } from "vue";
+
+const weight: Ref<number | any> = ref(null);
 
 const state = reactive({
 	isCalculated: false,
 	isCalculateAvailable: false,
 	isInterval: false,
-	weight: 0,
 });
 
-const input = (event: { value: string }) => {
-	if (!state.isInterval) {
-		state.weight = Number(event.value);
-	}
-};
-
 const calcWeight = (percentage: number) => {
-	const result: number = state.weight * (percentage / 100);
+	const result: number = Number(weight.value) * (percentage / 100);
 	return result;
 };
 
@@ -32,13 +27,13 @@ const onClickCalc = () => {
 };
 
 const onClickReset = () => {
-	state.weight = 0;
+	weight.value = null;
 	state.isCalculated = false;
 	state.isInterval = false;
 };
 
 const isCheckCalculateAvailable = computed(() => {
-	return state.weight > 0 && !state.isInterval ? true : false;
+	return weight.value > 0 && !state.isInterval ? true : false;
 });
 
 const isCheckResetAvailable = computed(() => {
@@ -110,7 +105,7 @@ const menuList: menu[] = [
 	<div class="ThreeTwoOneMethodView">
 		<UITitle :title="title" titleType="normal" />
 		<UIExplain :explain="explain" />
-		<UIInput @input="input" :value="state.weight" />
+		<UIInput v-model="weight" :isInterval="state.isInterval" />
 		<UIHint
 			:isCheckCalculateAvailable="isCheckCalculateAvailable"
 			:isCheckResetAvailable="isCheckResetAvailable"

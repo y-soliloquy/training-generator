@@ -16,7 +16,7 @@ const props = defineProps<Props>();
 			>半角数字で入力してください。</span
 		><span v-if="props.isCheckCalculateAvailable" class="UIHint-Calculate">計算できます。</span
 		><span v-if="props.isInterval && props.isCheckResetAvailable" class="UIHint-Reset"
-			>再計算する場合にはリセットしてください。</span
+			>再計算のためにはリセットしてください。</span
 		>
 	</div>
 </template>
@@ -33,5 +33,11 @@ const props = defineProps<Props>();
 }
 .UIHint-Reset {
 	color: #42b983;
+}
+
+@media (max-width: 480px) {
+	.UIHint {
+		font-size: 13px;
+	}
 }
 </style>
