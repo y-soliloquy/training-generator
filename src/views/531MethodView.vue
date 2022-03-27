@@ -15,9 +15,9 @@ const state = reactive({
 	isInterval: false,
 });
 
-const input = (event: { value: number }) => {
+const input = (event: { value: string }) => {
 	if (!state.isInterval) {
-		weight.value = event.value;
+		weight.value = Number(event.value);
 	}
 };
 

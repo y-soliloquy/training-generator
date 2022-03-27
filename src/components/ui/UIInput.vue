@@ -11,7 +11,12 @@ const props = defineProps<Props>();
 <template>
 	<div class="UIInput">
 		<span class="UIInput-Label">MAX重量 </span>
-		<input type="number" :value="props.value" @input="emit('input', $event.target)" />
+		<input
+			type="number"
+			:value="props.value"
+			onkeydown="return event.keyCode !== 69"
+			@input="emit('input', $event.target)"
+		/>
 	</div>
 </template>
 
