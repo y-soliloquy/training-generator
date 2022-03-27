@@ -22,6 +22,7 @@ module.exports = {
 				printWidth: 100, // 行の最大長 (80)
 				tabWidth: 4, // 1 インデントあたりの空白数 (2)
 				useTabs: true, // インデントにタブを使用する (false)
+				endOfLine: "auto",
 			},
 		],
 	},
