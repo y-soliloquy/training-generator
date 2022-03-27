@@ -1,9 +1,23 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { defineProps } from "vue";
+
+type Props = {
+	isCheckCalculateAvailable: boolean;
+	isCheckResetAvailable: boolean;
+	isInterval: boolean;
+};
+
+const props = defineProps<Props>();
+</script>
 
 <template>
 	<div class="UIHint">
-		<span>半角数字で入力してください。</span><span>計算できます。</span
-		><span>計算する場合にはリセットしてください。</span>
+		<span v-if="!props.isInterval && !props.isCheckCalculateAvailable"
+			>半角数字で入力してください。</span
+		><span v-if="props.isCheckCalculateAvailable">計算できます。</span
+		><span v-if="props.isInterval && props.isCheckResetAvailable"
+			>再計算する場合にはリセットしてください。</span
+		>
 	</div>
 </template>
 

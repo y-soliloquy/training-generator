@@ -110,7 +110,11 @@ const menuList: menu[] = [
 	<UITitle :title="title" />
 	<UIExplain :explain="explain" />
 	<UIInput @input="input" :value="weight" />
-	<UIHint />
+	<UIHint
+		:isCheckCalculateAvailable="isCheckCalculateAvailable"
+		:isCheckResetAvailable="isCheckResetAvailable"
+		:isInterval="state.isInterval"
+	/>
 	<UIFlexBox>
 		<UIButton @click="onClickCalc" :disabled="!isCheckCalculateAvailable">計算</UIButton>
 		<UIButton @click="onClickReset" :disabled="!isCheckResetAvailable">リセット</UIButton>
