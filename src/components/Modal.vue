@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, Ref, defineProps, defineEmits } from "vue";
+import { defineProps, defineEmits } from "vue";
 import TutorialModalVue from "./modal/TutorialModal.vue";
 
 type Props = {
@@ -15,11 +15,13 @@ const onClickClose = () => {
 </script>
 
 <template>
-	<section v-if="props.isVisible" class="Modal">
-		<div class="Modal-Box">
-			<TutorialModalVue @onClickClose="onClickClose" />
-		</div>
-	</section>
+	<transition name="Modal-TS">
+		<section v-if="props.isVisible" class="Modal">
+			<div class="Modal-Box">
+				<TutorialModalVue @onClickClose="onClickClose" />
+			</div>
+		</section>
+	</transition>
 </template>
 
 <style>
@@ -46,5 +48,33 @@ const onClickClose = () => {
 	background-color: #fff;
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* transition */
+
+.Modal-TS-enter-active {
+	transition: opacity 0.2s linear;
+}
+
+.Modal-TS-leave-active {
+	transition: opacity 0.2s linear;
+}
+
+.Modal-TS-enter,
+.Modal-TS-leave-to {
+	opacity: 0;
+}
+
+.Modal-TS-enter-active .Modal-Box {
+	transition: transform 0.2s ease-out;
+}
+
+.Modal-TS-leave-active .Modal-Box {
+	transition: transform 0.2s linear;
+}
+
+.Modal-TS-enter .Modal-Box,
+.Modal-TS-leave-to .Modal-Box {
+	transform: scale(0.9);
 }
 </style>
