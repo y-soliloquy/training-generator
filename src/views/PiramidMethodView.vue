@@ -8,22 +8,23 @@ import UIHint from "../components/ui/UIHint.vue";
 
 import { ref, Ref, reactive, computed } from "vue";
 
-let weight: Ref<number> = ref(0);
+// let weight: Ref<number> = ref(0);
 
 const state = reactive({
 	isCalculated: false,
 	isCalculateAvailable: false,
 	isInterval: false,
+	weight: 0,
 });
 
 const input = (event: { value: string }) => {
 	if (!state.isInterval) {
-		weight.value = Number(event.value);
+		state.weight = Number(event.value);
 	}
 };
 
 const calcWeight = (percentage: number) => {
-	const result: number = weight.value * (percentage / 100);
+	const result: number = state.weight * (percentage / 100);
 	return result;
 };
 
@@ -33,13 +34,13 @@ const onClickCalc = () => {
 };
 
 const onClickReset = () => {
-	weight.value = 0;
+	state.weight = 0;
 	state.isCalculated = false;
 	state.isInterval = false;
 };
 
 const isCheckCalculateAvailable = computed(() => {
-	return weight.value > 0 && !state.isInterval ? true : false;
+	return state.weight > 0 && !state.isInterval ? true : false;
 });
 
 const isCheckResetAvailable = computed(() => {
@@ -95,7 +96,7 @@ const menuList: menu[] = [
 	<div class="PiramidMethodView">
 		<UITitle :title="title" titleType="normal" />
 		<UIExplain :explain="explain" />
-		<UIInput @input="input" :value="weight" />
+		<UIInput @input="input" :value="state.weight" />
 		<UIHint
 			:isCheckCalculateAvailable="isCheckCalculateAvailable"
 			:isCheckResetAvailable="isCheckResetAvailable"
