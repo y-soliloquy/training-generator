@@ -28,6 +28,9 @@ const props = defineProps<Props>();
 .UIInput > input {
 	width: 200px;
 	height: 30px;
+	padding-left: 10px;
+	line-height: 1.5;
+	font-size: 20px;
 }
 
 .UIInput-Label {
