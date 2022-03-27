@@ -92,35 +92,37 @@ const menuList: menu[] = [
 </script>
 
 <template>
-	<UITitle :title="title" titleType="normal" />
-	<UIExplain :explain="explain" />
-	<UIInput @input="input" :value="weight" />
-	<UIHint
-		:isCheckCalculateAvailable="isCheckCalculateAvailable"
-		:isCheckResetAvailable="isCheckResetAvailable"
-		:isInterval="state.isInterval"
-	/>
-	<UIFlexBox>
-		<UIButton @click="onClickCalc" :disabled="!isCheckCalculateAvailable" size="small"
-			>計算</UIButton
-		>
-		<UIButton @click="onClickReset" :disabled="!isCheckResetAvailable" size="small"
-			>リセット</UIButton
-		>
-	</UIFlexBox>
-	<table class="PiramidMethodView-Table">
-		<tbody>
-			<tr v-for="(menu, index) in menuList" :key="index">
-				<th>{{ menu.number }}セット目</th>
-				<td>
-					<span v-if="!state.isCalculated">{{ menu.percentage }}%</span
-					><span v-else>{{ calcWeight(menu.percentage) }}kg</span> x
-					<span v-if="menu.count !== 1000">{{ menu.count }}回</span
-					><span v-else>限界回数</span>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+	<div>
+		<UITitle :title="title" titleType="normal" />
+		<UIExplain :explain="explain" />
+		<UIInput @input="input" :value="weight" />
+		<UIHint
+			:isCheckCalculateAvailable="isCheckCalculateAvailable"
+			:isCheckResetAvailable="isCheckResetAvailable"
+			:isInterval="state.isInterval"
+		/>
+		<UIFlexBox>
+			<UIButton @click="onClickCalc" :disabled="!isCheckCalculateAvailable" size="small"
+				>計算</UIButton
+			>
+			<UIButton @click="onClickReset" :disabled="!isCheckResetAvailable" size="small"
+				>リセット</UIButton
+			>
+		</UIFlexBox>
+		<table class="PiramidMethodView-Table">
+			<tbody>
+				<tr v-for="(menu, index) in menuList" :key="index">
+					<th>{{ menu.number }}セット目</th>
+					<td>
+						<span v-if="!state.isCalculated">{{ menu.percentage }}%</span
+						><span v-else>{{ calcWeight(menu.percentage) }}kg</span> x
+						<span v-if="menu.count !== 1000">{{ menu.count }}回</span
+						><span v-else>限界回数</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </template>
 
 <style>

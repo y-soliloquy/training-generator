@@ -41,6 +41,10 @@ const closeModal = () => {
 </template>
 
 <style>
+.HomeView {
+	height: 100%;
+}
+
 .HomeView-Logo {
 	width: 400px;
 	height: auto;
