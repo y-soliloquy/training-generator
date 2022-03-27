@@ -31,7 +31,7 @@ const closeModal = () => {
 	<div class="HomeView">
 		<Modal :isVisible="state.isVisible" @onClickClose="closeModal" />
 		<!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
-		<UITitle :title="title" />
+		<UITitle :title="title" titleType="normal" />
 		<div class="HomeView-Logo">
 			<img src="../assets/logo_top.png" />
 		</div>

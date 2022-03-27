@@ -92,7 +92,7 @@ const menuList: menu[] = [
 </script>
 
 <template>
-	<UITitle :title="title" />
+	<UITitle :title="title" titleType="normal" />
 	<UIExplain :explain="explain" />
 	<UIInput @input="input" :value="weight" />
 	<UIHint
