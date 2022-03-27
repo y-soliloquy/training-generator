@@ -104,7 +104,7 @@ const menuList: menu[] = [
 				<th>{{ menu.number }}セット目</th>
 				<td>
 					<span v-if="!state.isCalculated">{{ menu.percentage }}%</span
-					><span v-else>{{ calcWeight(menu.percentage) }}</span> x
+					><span v-else>{{ calcWeight(menu.percentage) }}kg</span> x
 					<span v-if="menu.count !== 1000">{{ menu.count }}回</span
 					><span v-else>限界回数</span>
 				</td>
