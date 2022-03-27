@@ -16,7 +16,11 @@ const click = () => {
 	padding: 6px 12px;
 	font-size: 15px;
 	border-radius: 15px;
-	background-color: transparent;
-	border: solid 1px black;
+	background-color: #42b983;
+	border: solid 1px #42b983;
+	color: white;
+}
+.UIButton:disabled {
+	opacity: 0.5;
 }
 </style>
