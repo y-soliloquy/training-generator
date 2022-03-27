@@ -24,24 +24,73 @@ const className = computed(() => {
 </template>
 
 <style>
+.UIButton {
+	background-color: #42b983;
+	border: solid 1px #42b983;
+	color: white;
+	box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.205);
+	cursor: pointer;
+	outline: none;
+}
+
 .UIButton._small {
 	width: 90px;
 	padding: 6px 12px;
 	font-size: 15px;
 	border-radius: 15px;
-	background-color: #42b983;
-	border: solid 1px #42b983;
-	color: white;
 }
+.UIButton._small:hover {
+	background-color: #38c284;
+}
+.UIButton._small:active {
+	border: solid 1px #23704d;
+	background-color: #205d42;
+	box-shadow: none;
+	outline: none;
+	position: relative;
+	top: 2px;
+}
+
+.UIButton._medium {
+	width: 200px;
+	padding: 6px 12px;
+	font-size: 20px;
+	border-radius: 25px;
+}
+
+.UIButton._medium:hover {
+	background-color: #38c284;
+}
+
+.UIButton._medium:active {
+	border: solid 1px #23704d;
+	background-color: #205d42;
+	box-shadow: none;
+	outline: none;
+	position: relative;
+	top: 2px;
+}
+
 .UIButton._large {
 	width: 250px;
 	padding: 6px 12px;
 	font-size: 25px;
 	border-radius: 25px;
-	background-color: #42b983;
-	border: solid 1px #42b983;
-	color: white;
 }
+
+.UIButton._large:hover {
+	background-color: #38c284;
+}
+
+.UIButton._large:active {
+	border: solid 1px #23704d;
+	background-color: #205d42;
+	box-shadow: none;
+	outline: none;
+	position: relative;
+	top: 2px;
+}
+
 .UIButton:disabled {
 	opacity: 0.5;
 }

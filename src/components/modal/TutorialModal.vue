@@ -18,7 +18,7 @@ const onClickClose = () => {
 	<div class="TutorialModal">
 		<UITitle :title="title" titleType="sub" />
 		<UIExplain :explain="explain" />
-		<UIButton class="TutorialModal-Button" size="large" @click="onClickClose">閉じる</UIButton>
+		<UIButton class="TutorialModal-Button" size="medium" @click="onClickClose">閉じる</UIButton>
 	</div>
 </template>
 
@@ -34,7 +34,6 @@ const onClickClose = () => {
 }
 
 .TutorialModal-Button {
-	position: absolute;
-	bottom: 30px;
+	margin-top: 10px;
 }
 </style>
