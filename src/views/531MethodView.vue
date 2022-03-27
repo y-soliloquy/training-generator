@@ -107,55 +107,58 @@ const menuList: menu[] = [
 </script>
 
 <template>
-	<UITitle :title="title" titleType="normal" />
-	<UIExplain :explain="explain" />
-	<UIInput @input="input" :value="weight" />
-	<UIHint
-		:isCheckCalculateAvailable="isCheckCalculateAvailable"
-		:isCheckResetAvailable="isCheckResetAvailable"
-		:isInterval="state.isInterval"
-	/>
-	<UIFlexBox>
-		<UIButton @click="onClickCalc" :disabled="!isCheckCalculateAvailable" size="small"
-			>計算</UIButton
-		>
-		<UIButton @click="onClickReset" :disabled="!isCheckResetAvailable" size="small"
-			>リセット</UIButton
-		>
-	</UIFlexBox>
-	<table class="ThreeTwoOneMethodView-Table">
-		<tbody>
-			<tr>
-				<th></th>
-				<th>1週目</th>
-				<th>2週目</th>
-				<th>3週目</th>
-				<th>4週目</th>
-			</tr>
-			<tr v-for="(menu, index) in menuList" :key="index">
-				<th>{{ menu.number }}セット目</th>
-				<td>
-					<span v-if="!state.isCalculated">{{ menu.percentage1 }}%</span
-					><span v-else>{{ calcWeight(menu.percentage1) }}kg</span> x
-					{{ menu.count1 }}回<span v-if="menu.isAdditionalCount">+α</span>
-				</td>
-				<td>
-					<span v-if="!state.isCalculated">{{ menu.percentage2 }}%</span
-					><span v-else>{{ calcWeight(menu.percentage2) }}kg</span> x
-					{{ menu.count2 }}回<span v-if="menu.isAdditionalCount">+α</span>
-				</td>
-				<td>
-					<span v-if="!state.isCalculated">{{ menu.percentage3 }}%</span
-					><span v-else>{{ calcWeight(menu.percentage3) }}kg</span> x
-					{{ menu.count3 }}回<span v-if="menu.isAdditionalCount">+α</span>
-				</td>
-				<td>
-					<span v-if="!state.isCalculated">{{ menu.percentage4 }}%</span
-					><span v-else>{{ calcWeight(menu.percentage4) }}kg</span> x {{ menu.count4 }}回
-				</td>
-			</tr>
-		</tbody>
-	</table>
+	<div>
+		<UITitle :title="title" titleType="normal" />
+		<UIExplain :explain="explain" />
+		<UIInput @input="input" :value="weight" />
+		<UIHint
+			:isCheckCalculateAvailable="isCheckCalculateAvailable"
+			:isCheckResetAvailable="isCheckResetAvailable"
+			:isInterval="state.isInterval"
+		/>
+		<UIFlexBox>
+			<UIButton @click="onClickCalc" :disabled="!isCheckCalculateAvailable" size="small"
+				>計算</UIButton
+			>
+			<UIButton @click="onClickReset" :disabled="!isCheckResetAvailable" size="small"
+				>リセット</UIButton
+			>
+		</UIFlexBox>
+		<table class="ThreeTwoOneMethodView-Table">
+			<tbody>
+				<tr>
+					<th></th>
+					<th>1週目</th>
+					<th>2週目</th>
+					<th>3週目</th>
+					<th>4週目</th>
+				</tr>
+				<tr v-for="(menu, index) in menuList" :key="index">
+					<th>{{ menu.number }}セット目</th>
+					<td>
+						<span v-if="!state.isCalculated">{{ menu.percentage1 }}%</span
+						><span v-else>{{ calcWeight(menu.percentage1) }}kg</span> x
+						{{ menu.count1 }}回<span v-if="menu.isAdditionalCount">+α</span>
+					</td>
+					<td>
+						<span v-if="!state.isCalculated">{{ menu.percentage2 }}%</span
+						><span v-else>{{ calcWeight(menu.percentage2) }}kg</span> x
+						{{ menu.count2 }}回<span v-if="menu.isAdditionalCount">+α</span>
+					</td>
+					<td>
+						<span v-if="!state.isCalculated">{{ menu.percentage3 }}%</span
+						><span v-else>{{ calcWeight(menu.percentage3) }}kg</span> x
+						{{ menu.count3 }}回<span v-if="menu.isAdditionalCount">+α</span>
+					</td>
+					<td>
+						<span v-if="!state.isCalculated">{{ menu.percentage4 }}%</span
+						><span v-else>{{ calcWeight(menu.percentage4) }}kg</span> x
+						{{ menu.count4 }}回
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </template>
 
 <style>
