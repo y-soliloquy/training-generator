@@ -9,11 +9,12 @@ const props = defineProps<Props>();
 </script>
 
 <template>
-	<div class="UIExplain">{{ props.explain }}</div>
+	<div class="UIExplain" v-html="props.explain"></div>
 </template>
 
 <style>
 .UIExplain {
-	padding: 30px 0px;
+	padding: 30px 30px;
+	line-height: 2;
 }
 </style>
