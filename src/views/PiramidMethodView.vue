@@ -4,6 +4,7 @@ import UIExplain from "../components/ui/UIExplain.vue";
 import UIInput from "../components/ui/UIInput.vue";
 import UIFlexBox from "../components/ui/UIFlexBox.vue";
 import UIButton from "../components/ui/UIButton.vue";
+import UIHint from "../components/ui/UIHint.vue";
 
 import { ref, Ref, reactive, computed } from "vue";
 
@@ -94,6 +95,7 @@ const menuList: menu[] = [
 	<UITitle :title="title" />
 	<UIExplain :explain="explain" />
 	<UIInput @input="input" :value="weight" />
+	<UIHint />
 	<UIFlexBox>
 		<UIButton @click="onClickCalc" :disabled="!isCheckCalculateAvailable">計算</UIButton>
 		<UIButton @click="onClickReset" :disabled="!isCheckResetAvailable">リセット</UIButton>
