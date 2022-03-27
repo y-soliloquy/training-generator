@@ -101,8 +101,12 @@ const menuList: menu[] = [
 		:isInterval="state.isInterval"
 	/>
 	<UIFlexBox>
-		<UIButton @click="onClickCalc" :disabled="!isCheckCalculateAvailable">計算</UIButton>
-		<UIButton @click="onClickReset" :disabled="!isCheckResetAvailable">リセット</UIButton>
+		<UIButton @click="onClickCalc" :disabled="!isCheckCalculateAvailable" size="small"
+			>計算</UIButton
+		>
+		<UIButton @click="onClickReset" :disabled="!isCheckResetAvailable" size="small"
+			>リセット</UIButton
+		>
 	</UIFlexBox>
 	<table class="PiramidMethodView-Table">
 		<tbody>

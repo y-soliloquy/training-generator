@@ -3,6 +3,7 @@
 // import { Ref } from 'vue';
 import HelloVisitors from "@/components/HelloVisitors.vue";
 import UITitle from "../components/ui/UITitle.vue";
+import UIButton from "../components/ui/UIButton.vue";
 // export default defineComponent({
 //   name: "HomeView",
 //   components: {
@@ -21,6 +22,7 @@ const text = "筋トレのメニューを自動生成します";
 			<img src="../assets/logo_top.png" />
 		</div>
 		<HelloVisitors :text="text" />
+		<UIButton class="HomeView-Button" size="large">チュートリアル</UIButton>
 	</div>
 </template>
 
@@ -34,5 +36,9 @@ const text = "筋トレのメニューを自動生成します";
 .HomeView-Logo > img {
 	width: 100%;
 	height: auto;
+}
+
+.HomeView-Button {
+	margin: 80px auto;
 }
 </style>
