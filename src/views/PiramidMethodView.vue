@@ -92,7 +92,7 @@ const menuList: menu[] = [
 </script>
 
 <template>
-	<div>
+	<div class="PiramidMethodView">
 		<UITitle :title="title" titleType="normal" />
 		<UIExplain :explain="explain" />
 		<UIInput @input="input" :value="weight" />
@@ -139,5 +139,14 @@ const menuList: menu[] = [
 	width: 300px;
 	height: 50px;
 	border: 1px solid black;
+}
+
+@media (max-width: 480px) {
+	.PiramidMethodView {
+		padding-bottom: 60px;
+	}
+	.PiramidMethodView-Table {
+		font-size: 14px;
+	}
 }
 </style>

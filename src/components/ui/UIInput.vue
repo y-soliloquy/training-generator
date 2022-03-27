@@ -36,4 +36,14 @@ const props = defineProps<Props>();
 .UIInput-Label {
 	font-size: 18px;
 }
+
+@media (max-width: 480px) {
+	.UIInput {
+		padding: 20px 0px;
+	}
+
+	.UIInput > input {
+		font-size: 18px;
+	}
+}
 </style>

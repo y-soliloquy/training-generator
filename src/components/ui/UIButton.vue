@@ -94,4 +94,19 @@ const className = computed(() => {
 .UIButton:disabled {
 	opacity: 0.5;
 }
+
+@media (max-width: 480px) {
+	.UIButton._small {
+		font-size: 15px;
+		width: 120px;
+	}
+	.UIButton._medium {
+		font-size: 20px;
+		width: 170px;
+	}
+	.UIButton._large {
+		font-size: 20px;
+		width: 220px;
+	}
+}
 </style>

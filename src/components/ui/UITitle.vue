@@ -36,4 +36,11 @@ const className = computed(() => {
 	font-size: 20px;
 	font-weight: bold;
 }
+
+@media (max-width: 480px) {
+	.UITitle._normal {
+		font-size: 20px;
+		padding: 20px 0px;
+	}
+}
 </style>

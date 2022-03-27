@@ -17,4 +17,11 @@ const props = defineProps<Props>();
 	padding: 30px 30px;
 	line-height: 2;
 }
+
+@media (max-width: 480px) {
+	.UIExplain {
+		font-size: 15px;
+		padding: 20px 20px;
+	}
+}
 </style>

@@ -47,7 +47,8 @@ const isCheckResetAvailable = computed(() => {
 });
 
 const title = "531プログラム";
-const explain = "日々の体調の揺れに対応できるプログラムです。";
+const explain =
+	"日々の体調の揺れに対応できるプログラムです。忙しい中しっかり鍛えたい方にピッタリ。";
 
 type menu = {
 	id: string;
@@ -107,7 +108,7 @@ const menuList: menu[] = [
 </script>
 
 <template>
-	<div>
+	<div class="ThreeTwoOneMethodView">
 		<UITitle :title="title" titleType="normal" />
 		<UIExplain :explain="explain" />
 		<UIInput @input="input" :value="weight" />
@@ -175,5 +176,14 @@ const menuList: menu[] = [
 	width: 120px;
 	height: 50px;
 	border: 1px solid black;
+}
+
+@media (max-width: 480px) {
+	.ThreeTwoOneMethodView {
+		padding-bottom: 60px;
+	}
+	.ThreeTwoOneMethodView-Table {
+		font-size: 14px;
+	}
 }
 </style>

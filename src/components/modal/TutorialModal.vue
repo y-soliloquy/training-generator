@@ -36,4 +36,17 @@ const onClickClose = () => {
 .TutorialModal-Button {
 	margin-top: 10px;
 }
+
+@media (max-width: 480px) {
+	.TutorialModal {
+		width: 80%;
+		display: flex;
+		align-items: center;
+		margin: 0px auto;
+	}
+
+	.TutorialModal-Button {
+		margin-bottom: 5px;
+	}
+}
 </style>

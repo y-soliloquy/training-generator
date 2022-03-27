@@ -59,4 +59,16 @@ const closeModal = () => {
 .HomeView-Button {
 	margin: 80px auto;
 }
+
+@media (max-width: 480px) {
+	.HomeView-Logo {
+		width: 200px;
+		height: auto;
+		margin: 30px auto;
+	}
+
+	.HomeView-Button {
+		margin: 60px auto;
+	}
+}
 </style>
