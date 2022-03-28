@@ -17,7 +17,7 @@ const state = reactive({
 });
 
 const calcWeight = (percentage: number) => {
-	const result: number = Number(weight.value) * (percentage / 100);
+	const result: number = Math.round(Number(weight.value) * (percentage / 100));
 	return result;
 };
 
