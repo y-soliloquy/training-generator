@@ -59,4 +59,9 @@ describe("UITitle.vue", () => {
 		});
 		expect(wrapper.vm.$props.titleType).toMatch("normal");
 	});
+
+	it("コンポーネント表示", () => {
+		const wrapper = shallowMount(UITitle);
+		expect(wrapper.classes()).toContain("UITitle");
+	});
 });
