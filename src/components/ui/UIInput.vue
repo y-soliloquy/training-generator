@@ -44,6 +44,7 @@ const weight = computed({
 		<input
 			type="number"
 			inputmode="numeric"
+			min="0"
 			v-model="weight"
 			onkeydown="return event.keyCode !== 69"
 			:disabled="props.isInterval"
